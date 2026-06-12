@@ -35,3 +35,46 @@ git branch -d <分支名> #删除选定分支
 github 远程分支<https://github.com/lisan-com/git-test.git> 克隆下来代码，只获取最新代码，不提交。
 获取后的代码，进行二次开发。
 使用远程分支<http://lisan@192.168.110.9:4004/r/test/git-test.git> 进行管理。
+
+~~~
+#克隆远端代码，把水果摊升级为水果档口
+git clone https://github.com/lisan-com/git-test.git 水果档口
+
+#重命名github的远端分支已做区分
+
+git remote rename origin upstream
+
+# 添加私有服务器为主源服务器 origin
+git remote add origin http://lisan@192.168.110.9/r/test/git/git-test.git
+
+# 此时你可以查看本地的远程
+git remote -v #可以看到有两个远程
+
+# origin 用来日常管理
+# upstream 主要用来拉取
+
+# 首次推送变更文件至 origin
+git push -u origin master
+
+~~~
+
+# 日常场景
+
+~~~
+1.在本地写完功能提交团队
+git add .
+git commit -m "提交私有服务器"
+git push origh master # 推送至指定服务器，指定分支
+
+2.github 服务器项目更新了，需要同步更新，合并文件
+
+git fetch upstream # 获取最新代码
+
+git merge upstream/master #合并代码至本分支，有冲突手动解决后，再commit
+
+git push origin master # 推送代码至私有服务器
+
+
+~~~
+
+# 通过这些操作可以双轨运行。
