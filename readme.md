@@ -30,3 +30,8 @@ git branch -d <分支名> #删除选定分支
 
 
 ~~~
+
+# 进阶玩法
+github 远程分支<https://github.com/lisan-com/git-test.git> 克隆下来代码，只获取最新代码，不提交。
+获取后的代码，进行二次开发。
+使用远程分支<http://lisan@192.168.110.9:4004/r/test/git-test.git> 进行管理。
